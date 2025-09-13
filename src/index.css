@@ -1,0 +1,206 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+  }
+
+  body {
+    margin: 0;
+    font-family: inherit;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+      monospace;
+  }
+}
+
+@layer components {
+  .workflow-canvas {
+    @apply bg-gray-50 relative overflow-hidden;
+    background-image: 
+      radial-gradient(circle, #e5e7eb 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  .toolbar-button {
+    @apply px-3 py-2 bg-white border border-gray-200 rounded-md hover:bg-gray-50 transition-colors duration-150 flex items-center gap-2;
+  }
+
+  .toolbar-button.active {
+    @apply bg-primary-50 border-primary-300 text-primary-700;
+  }
+
+  /* n8n 风格节点样式 */
+  .n8n-node {
+    @apply relative w-12 h-12 rounded-full border-2 shadow-sm;
+    @apply hover:shadow-md hover:scale-110 transition-all duration-200 cursor-pointer;
+    @apply flex items-center justify-center;
+  }
+
+  .n8n-node.selected {
+    @apply ring-2 ring-primary-400 ring-offset-1;
+  }
+
+  .n8n-node:hover .node-tooltip {
+    @apply opacity-100;
+  }
+
+  .node-tooltip {
+    @apply absolute -top-16 left-1/2 transform -translate-x-1/2;
+    @apply bg-gray-900 text-white text-xs px-3 py-2 rounded-lg opacity-0;
+    @apply transition-opacity pointer-events-none whitespace-nowrap z-20 shadow-lg;
+  }
+
+  /* 连接点样式优化 */
+  .react-flow__handle {
+    @apply !w-2 !h-2 !border !border-gray-300 !bg-white !rounded-full;
+    @apply transition-colors duration-200;
+  }
+
+  .react-flow__handle-left {
+    @apply hover:!border-blue-500 hover:!bg-blue-100;
+  }
+
+  .react-flow__handle-right {
+    @apply hover:!border-green-500 hover:!bg-green-100;
+  }
+
+  /* 输入端口 (target) - 蓝色主题 */
+  .react-flow__handle-target {
+    @apply !border-blue-500 !bg-blue-100;
+  }
+
+  .react-flow__handle-target:hover {
+    @apply !border-blue-600 !bg-blue-200;
+  }
+}
+
+/* React Flow 自定义样式 - n8n 风格 */
+.react-flow__edge-default {
+  stroke: #9ca3af;
+  stroke-width: 2;
+  stroke-dasharray: none;
+}
+
+.react-flow__edge-selected {
+  stroke: #3b82f6;
+  stroke-width: 3;
+}
+
+.react-flow__edge-straight {
+  stroke: #9ca3af;
+  stroke-width: 2;
+}
+
+.react-flow__edge-smoothstep {
+  stroke: #9ca3af;
+  stroke-width: 2;
+}
+
+/* 不同类型输出的连线颜色 */
+.react-flow__edge[data-output-type="success"] {
+  stroke: #10b981;
+}
+
+.react-flow__edge[data-output-type="error"] {
+  stroke: #ef4444;
+}
+
+.react-flow__edge[data-output-type="warning"] {
+  stroke: #f59e0b;
+}
+
+.react-flow__edge[data-output-type="data"] {
+  stroke: #3b82f6;
+}
+
+.react-flow__edge[data-output-type="cache_hit"] {
+  stroke: #10b981;
+}
+
+.react-flow__edge[data-output-type="cache_miss"] {
+  stroke: #f59e0b;
+}
+
+.react-flow__edge[data-output-type="blocked"] {
+  stroke: #ef4444;
+}
+
+.react-flow__edge[data-output-type="passed"] {
+  stroke: #10b981;
+}
+
+/* Execution flow animations */
+.react-flow__edge.executing {
+  stroke-dasharray: 5,5;
+  animation: dash 1s linear infinite;
+}
+
+.react-flow__edge.executing-success {
+  stroke: #10b981;
+  stroke-width: 3px;
+  stroke-dasharray: 8,4;
+  animation: dash 0.8s linear infinite;
+}
+
+.react-flow__edge.executing-error {
+  stroke: #ef4444;
+  stroke-width: 3px;
+  stroke-dasharray: 4,4;
+  animation: dash-fast 0.5s linear infinite;
+}
+
+.react-flow__edge.executing-data {
+  stroke: #3b82f6;
+  stroke-width: 3px;
+  stroke-dasharray: 6,3;
+  animation: dash 1s linear infinite;
+  filter: drop-shadow(0 0 4px rgba(59, 130, 246, 0.5));
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: -10;
+  }
+}
+
+@keyframes dash-fast {
+  to {
+    stroke-dashoffset: -8;
+  }
+}
+
+.react-flow__handle-connecting {
+  background: #3b82f6 !important;
+  border-color: #3b82f6 !important;
+}
+
+.react-flow__handle-valid {
+  background: #10b981 !important;
+  border-color: #10b981 !important;
+}
+
+.react-flow__handle-invalid {
+  background: #ef4444 !important;
+  border-color: #ef4444 !important;
+}
+
+.react-flow__controls {
+  @apply bg-white border border-gray-200 rounded-lg shadow-sm;
+}
+
+.react-flow__controls-button {
+  @apply border-0 bg-transparent hover:bg-gray-50;
+}
+
+.react-flow__minimap {
+  @apply bg-white border border-gray-200 rounded-lg shadow-sm;
+}
