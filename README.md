@@ -15,6 +15,14 @@
 
 </div>
 
+# 项目截图
+
+<div align="center">
+  <img src="./anycdn-flow.png" alt="主界面截图" width="600" />
+  <br />
+  <img src="./anyflow-execulte.png" alt="执行流程截图" width="600" />
+</div>
+
 ## 🌟 项目概述
 
 AnyCDN Flow 是一个现代化的可视化多融合CDN加速工作流构建器，灵感来源于 [fxdreema.com/builder](https://fxdreema.com/builder) 的 Block 设计理念。通过直观的拖拽式界面，用户可以轻松构建、配置和管理复杂的多供应商CDN融合加速策略。
