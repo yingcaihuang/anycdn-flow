@@ -40,14 +40,13 @@ AnyCDN Flow 是一个现代化的可视化多融合CDN加速工作流构建器�
 
 #### 🏢 按供应商分组
 
-# anycdn-flow
 
-|--------|------|------|
+| 供应商/组件 | 功能 | 说明 |
+| :---: | :--- | :--- |
 | **阿里云** | CDN、OSS、WAF、DCDN、图片优化 | 阿里云全栈CDN解决方案 |
 | **AWS** | CloudFront、S3、WAF、Shield、Lambda Edge | Amazon Web Services CDN生态 |
 | **Cloudflare** | CDN、Workers、WAF、Images、Analytics | Cloudflare边缘计算平台 |
 | **通用组件** | 源站服务器、负载均衡、缓存、优化、安全、监控 | 跨供应商通用功能 |
-|------|------|------|
 | **数据源** | 源站服务器、OSS、S3 | 原始内容存储和访问 |
 | **缓存层** | 边缘缓存、区域缓存、浏览器缓存 | 多级缓存策略 |
 | **优化处理** | 图片优化、代码压缩、Gzip/Brotli | 内容优化和压缩 |
